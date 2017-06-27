@@ -1,0 +1,12 @@
+
+server:
+  context-path: /api-stack
+
+management:
+    security:
+        enabled: false
+    health:
+      db:
+        enabled: false
+security:
+    ignored: /**
