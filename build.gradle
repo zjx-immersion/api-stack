@@ -20,6 +20,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply from: file('gradle/idea.gradle')
 apply from: file('gradle/test-coverage.gradle')
+apply from: file('gradle/api-test.gradle')
 
 version = project.version
 sourceCompatibility = project.javaV
@@ -41,6 +42,7 @@ dependencies {
     runtime('mysql:mysql-connector-java')
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: rest_assured_version
 }
 
 task wrapper(type: Wrapper) {

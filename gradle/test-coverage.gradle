@@ -12,6 +12,17 @@ jacocoTestReport {
         html.enabled true
         html.destination "${buildDir}/reports/jacoco/html"
     }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['**/ApiStackApplication.*',
+                              '**/dto/**',
+                              '**/apiTest/**'
+                    ])
+        })
+    }
+
 }
 
 //for automaticly execute jacoco coverage

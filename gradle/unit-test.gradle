@@ -1,0 +1,5 @@
+//Unit Test and API Test Code coverage all together
+task jacocoAllTestReport(type: JacocoReport){
+    sourceSets sourceSets.main
+    executionData test, apiTest
+}
