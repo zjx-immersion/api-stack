@@ -1,3 +1,7 @@
+println project.group + ":" + rootProject.name + ":" + project.version
+
+defaultTasks 'clean', 'build'
+
 buildscript {
 	ext {
 		springBootVersion = '1.5.4.RELEASE'
@@ -11,7 +15,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
