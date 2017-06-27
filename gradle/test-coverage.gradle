@@ -14,7 +14,7 @@ jacocoTestReport {
     }
 }
 
-//for automatly execute jacoco coverage
+//for automaticly execute jacoco coverage
 test.finalizedBy(project.tasks.jacocoTestReport)
 check.dependsOn jacocoTestReport
 
