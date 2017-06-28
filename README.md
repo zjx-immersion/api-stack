@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # API Stack
 [![Build Status](https://travis-ci.org/zjx-immersion/api-stack.svg?branch=master)](https://travis-ci.org/zjx-immersion/api-stack)
 
 ## Capabilities todo list in API Stack
 
 ### V1
+=======
+#API Stack
+[![Build Status](https://travis-ci.org/zjx-immersion/api-stack.svg?branch=master)](https://travis-ci.org/zjx-immersion/api-stack)
+
+##Capabilities todo list in API Stack
+>>>>>>> 1bc53efc7fc6ebe413b66991afc1eab913f606ea
  
  - [x] API Test support with alone api test source set
  - [X] API Test with Rest-assured
