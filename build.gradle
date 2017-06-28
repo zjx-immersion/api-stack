@@ -21,6 +21,7 @@ apply plugin: 'org.springframework.boot'
 apply from: file('gradle/idea.gradle')
 apply from: file('gradle/test-coverage.gradle')
 apply from: file('gradle/api-test.gradle')
+apply from: file('gradle/check-style.gradle')
 
 version = project.version
 sourceCompatibility = project.javaV
