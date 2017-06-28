@@ -13,7 +13,7 @@
  - [X] Test coverage report and verification with Jacoco
  - [X] IDE feature support like git、java
  - [ ] Project folder with multi level structure
- - [ ] Config support multi ENV with spring profile
+ - [X] Config support multi ENV with spring profile
  - [ ] Config content reading with unify mode  (eg:@ConfigurationProperties)
  - [X] Check Style support with customized config
  - [ ] ORM support: JAP with local env connect H2 and dev env connect Mysql 7
