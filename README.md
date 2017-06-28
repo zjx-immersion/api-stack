@@ -15,7 +15,7 @@
  - [ ] Project folder with multi level structure
  - [ ] Config support multi ENV with spring profile
  - [ ] Config content reading with unify mode  (eg:@ConfigurationProperties)
- - [ ] Check Style support with customized config
+ - [X] Check Style support with customized config
  - [ ] ORM support: JAP with local env connect H2 and dev env connect Mysql 7
  - [ ] DB managements like Flyway
  - [ ] Object mapping abstract with Orika
