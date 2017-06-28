@@ -1,6 +1,9 @@
 
 server:
-  context-path: /api-stack
+    context-path: /api-stack
+    session:
+        cookie:
+            http-only: true
 
 management:
     security:
@@ -8,5 +11,6 @@ management:
     health:
       db:
         enabled: false
+
 security:
     ignored: /**
