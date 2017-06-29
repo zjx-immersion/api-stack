@@ -7,3 +7,11 @@ server:
 
 info:
     env: PROD
+
+logging:
+    config: config/logback-prod.xml
+
+endpoints:
+    sensitive: true
+    info:
+        sensitive: false

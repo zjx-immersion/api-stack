@@ -30,7 +30,9 @@ jacocoTestReport {
             fileTree(dir: it,
                     exclude: ['**/ApiStackApplication.*',
                               '**/dto/**',
-                              '**/apiTest/**'
+                              '**/apiTest/**',
+                              '**/aop/**',
+                              '**/config/**'
                     ])
         })
     }

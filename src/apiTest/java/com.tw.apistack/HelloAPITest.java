@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = ApiStackApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloAPITest {
 
-    private static final String API_PATH = "/api-stack/greeting";
+    private static final String API_PATH = "/greeting";
 
 
     @Value("${local.server.port}")

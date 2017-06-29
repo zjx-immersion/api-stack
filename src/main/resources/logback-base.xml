@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <jmxConfigurator/>
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+    <springProperty scope="context" name="app" source="spring.application.name" />
+    <springProperty scope="context" name="env" source="info.env" />
+    <property name="logPath" value="logs"/>
+    <property name="logFile" value="service"/>
+    <property name="logPattern" value="%d [%thread] %level | CORRELATION_ID=%X{correlationID} | CLIENT_ID=%X{clientID} | CLIENT_VERSION=%X{clientVersion} | UUID=%X{UUID} | %logger{35} - %msg%n"/>
+
+    <!-- log all level messages -->
+    <appender name="service" class="ch.qos.logback.core.rolling.RollingFileAppender" >
+        <file>${logPath}/${logFile}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/${logFile}-%d{yyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>$%d [%thread] %level | CORRELATION_ID=%X{CorrelationID} | CLIENT_ID=%X{clientID} | CLIENT_VERSION=%X{clientVersion} | UUID=%X{UUID} | %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender" >
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- turn off everything we don't want to see -->
+    <logger name="org" level="ERROR" />
+    <logger name="net" level="ERROR" />
+    <logger name="httpclient" level="ERROR" />
+
+    <!-- turn off everything we do want to see -->
+    <logger name="de.stytex" level="INFO" />
+    <logger name="org.springframework.web.client.RestTemplate" level="INFO" />
+
+    <!-- the application logging level -->
+    <logger name="de.stytex.foobar" level="INFO" />
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="service"/>
+    </root>
+
+
+</included>
