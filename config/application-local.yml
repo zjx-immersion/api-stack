@@ -3,3 +3,6 @@ server:
 
 info:
     env: LOCAL
+
+logging:
+    config: config/logback-local.xml

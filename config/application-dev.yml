@@ -3,3 +3,6 @@ server:
 
 info:
     env: DEV
+
+logging:
+    config: config/logback-dev.xml

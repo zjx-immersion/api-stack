@@ -1,11 +1,11 @@
 
 server:
-    context-path: /api-stack
     session:
         cookie:
             http-only: true
 
 management:
+    context-path: /api-stack
     security:
         enabled: false
     health:

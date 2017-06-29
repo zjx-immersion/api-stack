@@ -21,7 +21,7 @@
  - [ ] Object mapping abstract with Orika
  - [ ] Unit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
  - [ ] Junit with JUnitParams
- - [ ] Log Aspect and Logback format for multi ENV
+ - [X] Log Aspect and Logback format for multi ENV
  - [ ] API request exception handling strategy and record them in log in public framework
  - [ ] API Error request unify response formation
  - [ ] CORS Support

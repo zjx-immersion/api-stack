@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="logback-base.xml" />
+
+    <logger name="com.tw.apistack" level="DEBUG"/>
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
