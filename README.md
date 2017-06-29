@@ -28,7 +28,7 @@
  - [ ] Request & Response gzip support
  - [ ] API quick access UI support: Swagger ui 
  - [ ] Security and Authentication support with Auth 2.0 and JWT and Spring Security
- - [ ] API /info with production ready info (like: version, name, build number etc.)
+ - [X] API /info with production ready info (like: version, name, build number etc.)
  - [ ] Remote debug support
  - [ ] CI process like Jenkins pipeline
  - [ ] Cache support
