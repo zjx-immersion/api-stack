@@ -1,0 +1,28 @@
+import java.text.SimpleDateFormat
+
+springBoot {
+    buildInfo {
+        // Generate extra build info.
+        additionalProperties = [
+                by: System.properties['user.name'],
+                operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})",
+                continuousIntegration: System.getenv('CI') ? true: false,
+                machine: InetAddress.localHost.hostName,
+                // Override buildInfo property time
+                time: buildTime(),
+                // Override name property
+                name: 'sample-springboot-app'
+                //todo CI build number and git version
+        ]
+    }
+}
+
+def buildTime() {
+    final dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ")
+    dateFormat.format(new Date())
+}
+
+apply plugin: "com.gorylenko.gradle-git-properties"
+gitProperties {
+    dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+}

@@ -6,13 +6,16 @@ buildscript {
     ext {
         springBootVersion = '1.5.4.RELEASE'
         buildDir = relativePath("./build")
-
     }
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17"
     }
 }
 
@@ -22,6 +25,8 @@ apply from: file('gradle/idea.gradle')
 apply from: file('gradle/test-coverage.gradle')
 apply from: file('gradle/api-test.gradle')
 apply from: file('gradle/check-style.gradle')
+apply from: file('gradle/build-info.gradle')
+
 
 version = project.version
 sourceCompatibility = project.javaV

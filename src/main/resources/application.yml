@@ -1,3 +1,6 @@
+spring:
+    application:
+        name: API-Stack
 
 server:
     session:
