@@ -9,8 +9,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
-
 /**
  * Created by jxzhong on 2017/7/3.
  */
@@ -20,9 +18,7 @@ public class DummyTodoRepository {
     private Set<TodoDTO> todos = new HashSet<>();
 
     public DummyTodoRepository() {
-        this.todos = new HashSet<>(asList(
-                new TodoDTO(1, "test-A", false, 1),
-                new TodoDTO(2, "test-B", false, 1)));
+        this.todos = new HashSet<>();
     }
 
     public List<TodoDTO> getAll() {
@@ -38,6 +34,10 @@ public class DummyTodoRepository {
     }
 
     public void add(TodoDTO todo) {
+        if (todo.getId() == 0) {
+            todo.setId(todos.size() + 1);
+            todo.setOrder(1);
+        }
         todos.add(todo);
     }
 

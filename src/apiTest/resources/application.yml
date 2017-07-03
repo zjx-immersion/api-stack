@@ -1,20 +1,8 @@
-spring:
-    application:
-        name: API-Stack
+---
+# Form running gradle locally
 
 server:
     context-path: /api
-    session:
-        cookie:
-            http-only: true
-
-management:
-    context-path: /api-stack
-    security:
-        enabled: false
-    health:
-      db:
-        enabled: false
 
 security:
     ignored: /**
@@ -26,3 +14,4 @@ cors:
     exposed-headers:
     allow-credentials: true
     max-age: 1800
+
