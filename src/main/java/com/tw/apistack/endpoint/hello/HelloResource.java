@@ -1,11 +1,11 @@
-package com.tw.apistack.endpoint;
+package com.tw.apistack.endpoint.hello;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.tw.apistack.endpoint.dto.Greeting;
+import com.tw.apistack.endpoint.hello.dto.Greeting;
 
 /**
  * Created by jxzhong on 2017/6/27.

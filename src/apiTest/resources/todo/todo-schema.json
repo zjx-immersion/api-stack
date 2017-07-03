@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "completed": {
+      "id": "/properties/completed",
+      "type": "boolean"
+    },
+    "id": {
+      "id": "/properties/id",
+      "type": "integer"
+    },
+    "order": {
+      "id": "/properties/order",
+      "type": "integer"
+    },
+    "title": {
+      "id": "/properties/title",
+      "type": "string"
+    },
+    "url": {
+      "id": "/properties/url",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
