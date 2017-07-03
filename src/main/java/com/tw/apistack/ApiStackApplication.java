@@ -7,11 +7,16 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import com.tw.apistack.config.Constants;
+import com.tw.apistack.endpoint.todo.dto.TodoDTO;
+import com.tw.apistack.repository.DummyTodoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 
 
@@ -58,5 +63,27 @@ public class ApiStackApplication {
                 InetAddress.getLocalHost().getHostAddress(),
                 env.getProperty("server.port"),
                 env.getActiveProfiles());
+    }
+
+    @Bean
+    @Profile(Constants.SPRING_PROFILE_LOCAL)
+    public CommandLineRunner setup(DummyTodoRepository toDoRepository) {
+        return (args) -> {
+            toDoRepository.add(new TodoDTO("Remove unused imports", true));
+            toDoRepository.add(new TodoDTO("Clean the code", true));
+            toDoRepository.add(new TodoDTO("Build the artifacts", false));
+            toDoRepository.add(new TodoDTO("Deploy the jar file", true));
+            LOG.info("The sample data has been generated");
+        };
+    }
+
+    @Bean
+    @Profile(Constants.SPRING_PROFILE_TEST)
+    public CommandLineRunner setupTestEnv(DummyTodoRepository toDoRepository) {
+        return (args) -> {
+            toDoRepository.add(new TodoDTO("test-A", false));
+            toDoRepository.add(new TodoDTO("test-B", false));
+            LOG.info("The test data has been generated");
+        };
     }
 }

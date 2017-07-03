@@ -17,6 +17,11 @@ public class TodoDTO {
         this.title = title;
     }
 
+    public TodoDTO(String title, Boolean completed) {
+        this.title = title;
+        this.completed = completed;
+    }
+
     public TodoDTO(int id, String title, Boolean completed, Integer order) {
         this.id = id;
         this.title = title;
@@ -56,7 +61,7 @@ public class TodoDTO {
     }
 
     public boolean isCompleted() {
-        return nonNull(this.completed, false);
+        return nonNull(completed, false);
     }
 
     public void setCompleted(boolean completed) {

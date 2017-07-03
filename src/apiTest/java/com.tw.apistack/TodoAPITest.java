@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
+import com.tw.apistack.config.Constants;
 import com.tw.apistack.endpoint.todo.dto.TodoDTO;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
@@ -11,7 +12,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.swing.*;
 
 import static com.jayway.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.is;
@@ -20,10 +25,12 @@ import static org.hamcrest.Matchers.is;
  * Created by jxzhong on 2017/7/3.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ApiStackApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles(Constants.SPRING_PROFILE_TEST)
+@SpringBootTest(classes = ApiStackApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TodoAPITest {
 
-    private static final String API_PATH = "/todos";
+    private static final String API_PATH = "/api/todos";
 
 
     @Value("${local.server.port}")
@@ -36,9 +43,25 @@ public class TodoAPITest {
 
     }
 
+
+    @Test
+    public void should_get_status_200_when_call_todos() throws Exception {
+        RestAssured.
+                given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .when()
+                .get(API_PATH)
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .contentType(ContentType.JSON)
+                .body("size()", is(2));
+    }
+
+
     @Test
     public void should_get_status_201_when_call_post_todo() throws Exception {
-        TodoDTO todoDTO = new TodoDTO(3, "first todo item", false, 1);
+        TodoDTO todoDTO = new TodoDTO("first todo item", false);
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String json = ow.writeValueAsString(todoDTO);
@@ -55,19 +78,6 @@ public class TodoAPITest {
                 .statusCode(HttpStatus.SC_CREATED)
                 .contentType(ContentType.JSON)
                 .body("title", is(todoDTO.getTitle()));
-    }
-
-    @Test
-    public void should_get_status_200_when_call_todos() throws Exception {
-        RestAssured.
-                given()
-                .accept(ContentType.JSON)
-                .when()
-                .get(API_PATH)
-                .then()
-                .statusCode(HttpStatus.SC_OK)
-                .contentType(ContentType.JSON)
-                .body("size()", is(2));
     }
 
     @Test
@@ -129,7 +139,7 @@ public class TodoAPITest {
     }
 
     @Test
-    public void should_get_status_400_when_call_todos_patch_with_path_4() throws Exception {
+    public void should_get_status_400_when_call_todos_patch_with_path_1_and_empty_body() throws Exception {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -142,7 +152,7 @@ public class TodoAPITest {
     }
 
     @Test
-    public void should_get_status_200_when_call_todos_delete_with_path_4() throws Exception {
+    public void should_get_status_200_when_call_todos_delete_with_path_1() throws Exception {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -158,7 +168,7 @@ public class TodoAPITest {
                 .given()
                 .accept(ContentType.JSON)
                 .when()
-                .delete(API_PATH + "/3")
+                .delete(API_PATH + "/100")
                 .then()
                 .statusCode(HttpStatus.SC_NOT_FOUND);
     }
