@@ -1,4 +1,4 @@
-package com.tw.apistack.endpoint.dto;
+package com.tw.apistack.endpoint.hello.dto;
 
 /**
  * Created by jxzhong on 2017/6/27.
