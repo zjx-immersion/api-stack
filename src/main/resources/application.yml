@@ -3,6 +3,7 @@ spring:
         name: API-Stack
 
 server:
+    context-path: /api
     session:
         cookie:
             http-only: true
@@ -17,3 +18,11 @@ management:
 
 security:
     ignored: /**
+
+cors:
+    allowed-origins: "*"
+    allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+    allowed-headers: origin, content-type, accept, authorization
+    exposed-headers:
+    allow-credentials: true
+    max-age: 1800
