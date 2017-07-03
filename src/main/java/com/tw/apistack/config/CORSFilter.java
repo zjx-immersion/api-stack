@@ -23,12 +23,12 @@ import java.io.IOException;
 @EnableConfigurationProperties(CORSProperties.class)
 public class CORSFilter implements Filter {
 
+    @Autowired
+    private CORSProperties corsProperties;
+
     @Override
     public void init(FilterConfig arg0) throws ServletException {
     }
-
-    @Autowired
-    private CORSProperties corsProperties;
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp,
