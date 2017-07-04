@@ -85,14 +85,8 @@ stage 'Deploy'
 node {
     sh "echo 'Run API Server in Container'"
     sh "docker run --name=api-server -d -p 5000:8082 zhongjx/api-stack "
+    deleteDir()
 }
-
-post {
-    always {
-        deleteDir()
-    }
-}
-
 
 def archiveUnitTestResults() {
     step([$class: "JUnitResultArchiver", testResults: "build/**/TEST-*.xml"])
