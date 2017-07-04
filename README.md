@@ -37,12 +37,13 @@
  - [ ] API version support
  - [ ] Rest api playload standard building like JaonAPI
  - [ ] Build jar in container
- - [ ] Containerized the env (API and DB)
+ - [X] Containerized the env API server
+ - [ ] Containerized the env DB 
  - [ ] File upload and download support like Image
  - [ ] Hot Reload when doing some updates
  
  ### V2
-  - [ ] CORS Support including client validation
+ - [ ] CORS Support including client validation
  
  ## Contribution
  if you wang to pick any item upon, please click [Board](https://github.com/zjx-immersion/api-stack/projects/1), and choose the corresponding crad which exist in todo list.
