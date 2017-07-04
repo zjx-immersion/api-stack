@@ -19,12 +19,12 @@
  - [ ] ORM support: JAP with local env connect H2 and dev env connect Mysql 7
  - [ ] DB managements like Flyway
  - [ ] Object mapping abstract with Orika
- - [ ] Unit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
+ - [X] JUnit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
  - [ ] Junit with JUnitParams
  - [X] Log Aspect and Logback format for multi ENV
  - [ ] API request exception handling strategy and record them in log in public framework
  - [ ] API Error request unify response formation
- - [ ] CORS Support
+ - [X] CORS simple Support
  - [ ] Request & Response gzip support
  - [ ] API quick access UI support: Swagger ui 
  - [ ] Security and Authentication support with Auth 2.0 and JWT and Spring Security
@@ -38,6 +38,11 @@
  - [ ] Rest api playload standard building like JaonAPI
  - [ ] Build jar in container
  - [ ] Containerized the env (API and DB)
+ - [ ] File upload and download support like Image
+ - [ ] Hot Reload when doing some updates
+ 
+ ### V2
+  - [X] CORS Support including client validation
  
  ## Contribution
  if you wang to pick any item upon, please click [Board](https://github.com/zjx-immersion/api-stack/projects/1), and choose the corresponding crad which exist in todo list.
