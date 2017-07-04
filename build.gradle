@@ -16,6 +16,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17"
+        classpath group: 'se.transmode.gradle', name: 'gradle-docker', version: '1.2'
     }
 }
 
@@ -26,6 +27,7 @@ apply from: file('gradle/test-coverage.gradle')
 apply from: file('gradle/api-test.gradle')
 apply from: file('gradle/check-style.gradle')
 apply from: file('gradle/build-info.gradle')
+apply from: file('gradle/docker.gradle')
 
 
 version = project.version
