@@ -1,0 +1,26 @@
+apply plugin: 'docker'
+
+task buildDocker(type: Docker, dependsOn: build) {
+    push = false
+    tag = 'zhongjx/'+rootProject.name
+    tagVersion = 'latest'
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from "src/main/docker/"
+            into stageDir
+            include "*.*"
+        }
+        copy {
+            from "config/"
+            into "${stageDir}/config"
+            include "*.*"
+        }
+        copy {
+            from "build/libs"
+            into stageDir
+            include "*.jar*"
+        }
+    }
+}
