@@ -42,7 +42,7 @@
  - [ ] Hot Reload when doing some updates
  
  ### V2
-  - [X] CORS Support including client validation
+  - [ ] CORS Support including client validation
  
  ## Contribution
  if you wang to pick any item upon, please click [Board](https://github.com/zjx-immersion/api-stack/projects/1), and choose the corresponding crad which exist in todo list.
