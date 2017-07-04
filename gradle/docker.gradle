@@ -1,6 +1,6 @@
 apply plugin: 'docker'
 
-task buildDocker(type: Docker, dependsOn: build) {
+task buildDocker(type: Docker) {
     push = false
     tag = 'zhongjx/'+rootProject.name
     tagVersion = 'latest'
