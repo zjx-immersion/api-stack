@@ -30,7 +30,7 @@
  - [ ] Security and Authentication support with Auth 2.0 and JWT and Spring Security
  - [X] API /info with production ready info (like: version, name, build number etc.)
  - [ ] Remote debug support
- - [ ] CI process like Jenkins pipeline
+ - [X] CI process like Jenkins pipeline
  - [ ] Cache support
  - [ ] Internationalization (i18n)
  - [ ] The unify way to call dependence service
@@ -44,6 +44,8 @@
  
  ### V2
  - [ ] CORS Support including client validation
+ - [ ] Ansible deploy process strategy
+ - [ ] Containerized building and running with newest Docker multi build feature
  
  ## Contribution
  if you wang to pick any item upon, please click [Board](https://github.com/zjx-immersion/api-stack/projects/1), and choose the corresponding crad which exist in todo list.
