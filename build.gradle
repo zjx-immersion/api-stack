@@ -29,6 +29,11 @@ apply from: file('gradle/check-style.gradle')
 apply from: file('gradle/build-info.gradle')
 apply from: file('gradle/docker.gradle')
 
+apply plugin: 'application'
+
+applicationDefaultJvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"]
+
+
 
 version = project.version
 sourceCompatibility = project.javaV
