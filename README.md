@@ -44,6 +44,7 @@
  
  ### V2
  - [ ] CORS Support including client validation
+ - [ ] Customer Driven Contract Testing - (Tool advice: spring boot contract or Pact)
  - [ ] Ansible deploy process strategy
  - [ ] Containerized building and running with newest Docker multi build feature
  
