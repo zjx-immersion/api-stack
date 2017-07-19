@@ -6,3 +6,11 @@ info:
 
 logging:
     config: config/logback-local.xml
+
+spring:
+    jpa:
+        database: H2
+        show-sql: true
+    h2:
+        console:
+            enabled: true

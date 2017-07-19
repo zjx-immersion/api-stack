@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import com.tw.apistack.config.Constants;
+import com.tw.apistack.domain.customer.Customer;
+import com.tw.apistack.domain.customer.CustomerRepository;
 import com.tw.apistack.endpoint.todo.dto.TodoDTO;
 import com.tw.apistack.repository.DummyTodoRepository;
 import org.slf4j.Logger;
@@ -74,6 +76,42 @@ public class ApiStackApplication {
             toDoRepository.add(new TodoDTO("Build the artifacts", false));
             toDoRepository.add(new TodoDTO("Deploy the jar file", true));
             LOG.info("The sample data has been generated");
+        };
+    }
+
+    @Bean
+    @Profile(Constants.SPRING_PROFILE_LOCAL)
+    public CommandLineRunner setupDB(CustomerRepository repository) {
+        return (args) -> {
+            // save a couple of customers
+            repository.save(new Customer("Jack", "Bauer"));
+            repository.save(new Customer("Chloe", "O'Brian"));
+            repository.save(new Customer("Kim", "Bauer"));
+            repository.save(new Customer("David", "Palmer"));
+            repository.save(new Customer("Michelle", "Dessler"));
+
+            // fetch all customers
+            LOG.info("Customers found with findAll():");
+            LOG.info("-------------------------------");
+            for (Customer customer : repository.findAll()) {
+                LOG.info(customer.toString());
+            }
+            LOG.info("");
+
+            // fetch an individual customer by ID
+            Customer customer = repository.findOne(1L);
+            LOG.info("Customer found with findOne(1L):");
+            LOG.info("--------------------------------");
+            LOG.info(customer.toString());
+            LOG.info("");
+
+            // fetch customers by last name
+            LOG.info("Customer found with findByLastName('Bauer'):");
+            LOG.info("--------------------------------------------");
+            for (Customer bauer : repository.findByLastName("Bauer")) {
+                LOG.info(bauer.toString());
+            }
+            LOG.info("");
         };
     }
 
