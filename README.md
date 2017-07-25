@@ -16,7 +16,8 @@
  - [X] Config support multi ENV with spring profile
  - [ ] Config content reading with unify mode  (eg:@ConfigurationProperties)
  - [X] Check Style support with customized config
- - [ ] ORM support: JAP with local env connect H2 and dev env connect Mysql 7
+ - [ ] ORM support: JAP with local env connect H2 
+ - [ ] JAP with Dev env connect Mysql 7 and multi name rule persistence operation in JPA Respostory
  - [ ] DB managements like Flyway
  - [ ] Object mapping abstract with Orika
  - [X] JUnit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
