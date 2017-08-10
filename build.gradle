@@ -47,13 +47,13 @@ dependencies {
     //compile('org.flywaydb:flyway-core')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-web')
-    runtime('org.springframework.boot:spring-boot-devtools')
     compile('org.liquibase:liquibase-core')
     compile 'io.jsonwebtoken:jjwt:0.7.0'
     compile group: 'com.google.guava', name: 'guava', version: '22.0'
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+    runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')
-    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: rest_assured_version
     testCompile group: 'com.jayway.restassured', name: 'json-schema-validator', version: rest_assured_version

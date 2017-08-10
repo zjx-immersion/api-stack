@@ -6,6 +6,7 @@ package com.tw.apistack.domain.customer;
 
 import java.util.List;
 
+import com.tw.apistack.domain.customer.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
