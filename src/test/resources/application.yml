@@ -1,0 +1,16 @@
+server:
+    port: 8082
+
+info:
+    env: LOCAL
+
+logging:
+    config: config/logback-local.xml
+
+cors:
+    allowed-origins: "*"
+    allowed-methods: GET, PUT, POST, DELETE, PATCH
+    allowed-headers: origin, content-type, accept, authorization
+    exposed-headers:
+    allow-credentials: true
+    max-age: 1800
