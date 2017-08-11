@@ -1,0 +1,28 @@
+spring:
+    application:
+        name: API-Stack
+
+server:
+    context-path: /api
+    session:
+        cookie:
+            http-only: true
+
+management:
+    context-path: /api-stack
+    security:
+        enabled: false
+    health:
+      db:
+        enabled: false
+
+security:
+    ignored: /**
+
+cors:
+    allowed-origins: "*"
+    allowed-methods: GET, PUT, POST, DELETE, PATCH
+    allowed-headers: origin, content-type, accept, authorization
+    exposed-headers:
+    allow-credentials: true
+    max-age: 1800

@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.authentication;
 
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Autowired;

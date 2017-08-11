@@ -1,6 +1,8 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tw.apistack.security.authrization.ApiStackAuthenticationSuccessHandler;
+import com.tw.apistack.security.core.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

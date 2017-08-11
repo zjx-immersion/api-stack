@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.authentication;
 
 public class JwtToken {
     private String token;

@@ -1,5 +1,6 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.authentication;
 
+import com.tw.apistack.security.authrization.ApiStackUserDetailsService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;

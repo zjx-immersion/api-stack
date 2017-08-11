@@ -1,9 +1,11 @@
 /* Starbucks Licensed  */
 
-package com.tw.apistack.security;
+package com.tw.apistack.security.authrization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
+import com.tw.apistack.security.authentication.JwtToken;
+import com.tw.apistack.security.authentication.TokenAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

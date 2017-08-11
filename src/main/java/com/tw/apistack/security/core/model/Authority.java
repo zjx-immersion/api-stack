@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.core.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

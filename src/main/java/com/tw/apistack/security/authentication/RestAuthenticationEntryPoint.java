@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.authentication;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

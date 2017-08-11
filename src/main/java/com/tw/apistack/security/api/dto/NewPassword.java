@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.security.api.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
