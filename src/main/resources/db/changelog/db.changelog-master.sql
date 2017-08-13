@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
 -- CREATE DATABASE roastery COLLATE 'utf8_general_ci';
---changeset xiangchen:1
+--changeset tw:1
 
 CREATE TABLE user (
   username         VARCHAR(50) NOT NULL PRIMARY KEY,

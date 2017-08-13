@@ -3,7 +3,7 @@
 # Need to Install jq to extract json
 
 
-host="localhost:8080"
+host="localhost:8082"
 #host="10.202.128.167:8080"
 echo -e "\n\n----------------\n"
 echo "Try to get api version"
@@ -19,7 +19,7 @@ curl -s -i -H "Content-Type: application/json" -XPOST http://$host/api/login -d 
 echo -e "\n\n----------------\n"
 echo "Try to refresh"
 
-bear="Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJmNTJlN2U4Ni0yNTA2LTQ3MzgtYTE4OS1iZTY4MDE4YzY4NDkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTUwMTMxODIyMH0.UrKjQleziJLtM4lD4oF-ZAuJ4d_nnhGlCTxffUKUn-a6dKiCJ3SI3nHJ0kUx61uKarCG-25RSJXEYPiwYhYfwQ"
+bear="Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJiMDBmZGYzYi1mZWVjLTQyNWMtODY1ZS02ZTE0ZGRjMDI0NWUiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTUwMzUwMjAxNH0.EpB-RPKz_XEeTGICCag9aUMwlLkGgFAh8bRk4s4WeStKMEkbAJJUH7jxNFjOU3aSrak4IzAODs08JosiT5FKNA"
 curl -s -i -H "$bear" -XPOST http://$host/api/secure/token/refresh
 
 

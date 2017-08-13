@@ -32,6 +32,5 @@ authentication:
     jwt:
       expire: 864000000
       secret: secret
-      token:
-        prefix: Bearer
+      token-prefix: Bearer
       header: Authorization
