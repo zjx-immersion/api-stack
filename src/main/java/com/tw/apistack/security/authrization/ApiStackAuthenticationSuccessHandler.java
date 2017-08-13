@@ -66,7 +66,7 @@ public class ApiStackAuthenticationSuccessHandler implements AuthenticationSucce
                 .getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority).collect(Collectors.toList());
-        tokenMap.put("user", ImmutableMap.of("username", userContext.getUsername(), "roles", roles));
+        tokenMap.put("todo", ImmutableMap.of("username", userContext.getUsername(), "roles", roles));
         return tokenMap;
     }
 }

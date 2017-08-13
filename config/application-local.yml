@@ -10,7 +10,7 @@ logging:
 
 spring:
     datasource:
-        url: jdbc:h2:mem:testData;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:testData;MODE=MySQL;DB_CLOSE_DELAY=-1
         username: sa
         password:
     jpa:
@@ -24,7 +24,7 @@ spring:
 liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.sql
     enabled: true
-    url: jdbc:h2:mem:testData;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:testData;MODE=MySQL;DB_CLOSE_DELAY=-1
     user: sa
     password:
 

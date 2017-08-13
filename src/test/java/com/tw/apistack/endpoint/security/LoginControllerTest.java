@@ -1,4 +1,4 @@
-package com.tw.apistack.security;
+package com.tw.apistack.endpoint.security;
 
 import com.tw.apistack.security.core.model.User;
 import org.junit.Before;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class LoginControllerIT {
+public class LoginControllerTest {
     private String base;
 
     @LocalServerPort

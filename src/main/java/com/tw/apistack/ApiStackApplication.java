@@ -1,11 +1,16 @@
 package com.tw.apistack;
 
 import com.tw.apistack.config.Constants;
+import com.tw.apistack.core.todo.model.Todo;
+import com.tw.apistack.core.todo.DummyTodoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -64,10 +69,10 @@ public class ApiStackApplication {
     @Profile(Constants.SPRING_PROFILE_LOCAL)
     public CommandLineRunner setup(DummyTodoRepository toDoRepository) {
         return (args) -> {
-            toDoRepository.add(new TodoDTO("Remove unused imports", true));
-            toDoRepository.add(new TodoDTO("Clean the code", true));
-            toDoRepository.add(new TodoDTO("Build the artifacts", false));
-            toDoRepository.add(new TodoDTO("Deploy the jar file", true));
+            toDoRepository.add(new Todo("Remove unused imports", true));
+            toDoRepository.add(new Todo("Clean the code", true));
+            toDoRepository.add(new Todo("Build the artifacts", false));
+            toDoRepository.add(new Todo("Deploy the jar file", true));
             LOG.info("The sample data has been generated");
         };
     }
@@ -106,15 +111,15 @@ public class ApiStackApplication {
             }
             LOG.info("");
         };
-    }
+    } */
 
     @Bean
     @Profile(Constants.SPRING_PROFILE_TEST)
     public CommandLineRunner setupTestEnv(DummyTodoRepository toDoRepository) {
         return (args) -> {
-            toDoRepository.add(new TodoDTO("test-A", false));
-            toDoRepository.add(new TodoDTO("test-B", false));
+            toDoRepository.add(new Todo("test-A", false));
+            toDoRepository.add(new Todo("test-B", false));
             LOG.info("The test data has been generated");
         };
-    }*/
+    }
 }

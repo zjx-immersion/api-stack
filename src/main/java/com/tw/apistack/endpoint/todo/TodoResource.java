@@ -1,8 +1,8 @@
 package com.tw.apistack.endpoint.todo;
 
 import com.tw.apistack.endpoint.todo.dto.ResourceWithUrl;
-import com.tw.apistack.endpoint.todo.dto.TodoDTO;
-import com.tw.apistack.repository.DummyTodoRepository;
+import com.tw.apistack.core.todo.model.Todo;
+import com.tw.apistack.core.todo.DummyTodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -40,7 +40,7 @@ public class TodoResource {
     @GetMapping("/{todo-id}")
     public HttpEntity<ResourceWithUrl> getTodo(@PathVariable("todo-id") long id) {
 
-        Optional<TodoDTO> todoOptional = todoRepository.findById(id);
+        Optional<Todo> todoOptional = todoRepository.findById(id);
 
         if (!todoOptional.isPresent()) {
             return new ResponseEntity<>(NOT_FOUND);
@@ -50,7 +50,7 @@ public class TodoResource {
     }
 
     @PostMapping(headers = {"Content-type=application/json"})
-    public HttpEntity<ResourceWithUrl> saveTodo(@RequestBody TodoDTO todo) {
+    public HttpEntity<ResourceWithUrl> saveTodo(@RequestBody Todo todo) {
         todo.setId(todoRepository.getAll().size() + 1);
         todoRepository.add(todo);
 
@@ -59,7 +59,7 @@ public class TodoResource {
 
     @DeleteMapping("/{todo-id}")
     public ResponseEntity deleteOneTodo(@PathVariable("todo-id") long id) {
-        Optional<TodoDTO> todoOptional = todoRepository.findById(id);
+        Optional<Todo> todoOptional = todoRepository.findById(id);
 
         if (todoOptional.isPresent()) {
             todoRepository.delete(todoOptional.get());
@@ -70,8 +70,8 @@ public class TodoResource {
     }
 
     @PatchMapping(value = "/{todo-id}", headers = {"Content-type=application/json"})
-    public HttpEntity<ResourceWithUrl> updateTodo(@PathVariable("todo-id") long id, @RequestBody TodoDTO newTodo) {
-        Optional<TodoDTO> todoOptional = todoRepository.findById(id);
+    public HttpEntity<ResourceWithUrl> updateTodo(@PathVariable("todo-id") long id, @RequestBody Todo newTodo) {
+        Optional<Todo> todoOptional = todoRepository.findById(id);
 
         if (!todoOptional.isPresent()) {
             return new ResponseEntity<>(NOT_FOUND);
@@ -81,23 +81,23 @@ public class TodoResource {
 
         todoRepository.delete(todoOptional.get());
 
-        TodoDTO mergedTodo = todoOptional.get().merge(newTodo);
+        Todo mergedTodo = todoOptional.get().merge(newTodo);
         todoRepository.add(mergedTodo);
 
         return respondWithResource(mergedTodo, OK);
     }
 
 
-    private String getHref(TodoDTO todo) {
+    private String getHref(Todo todo) {
         return "";
         //        return linkTo(methodOn(this.getClass()).getTodo(todo.getId())).withSelfRel().getHref();
     }
 
-    private ResourceWithUrl toResource(TodoDTO todo) {
+    private ResourceWithUrl toResource(Todo todo) {
         return new ResourceWithUrl(todo, getHref(todo));
     }
 
-    private HttpEntity<ResourceWithUrl> respondWithResource(TodoDTO todo, HttpStatus statusCode) {
+    private HttpEntity<ResourceWithUrl> respondWithResource(Todo todo, HttpStatus statusCode) {
         ResourceWithUrl resourceWithUrl = toResource(todo);
 
         return new ResponseEntity<>(resourceWithUrl, statusCode);

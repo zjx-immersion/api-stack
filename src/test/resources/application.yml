@@ -14,3 +14,10 @@ cors:
     exposed-headers:
     allow-credentials: true
     max-age: 1800
+
+authentication:
+    jwt:
+      expire: 864000000
+      secret: secret
+      token-prefix: Bearer
+      header: Authorization

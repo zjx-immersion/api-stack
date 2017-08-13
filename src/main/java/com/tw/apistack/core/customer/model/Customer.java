@@ -1,4 +1,4 @@
-package com.tw.apistack.domain.customer.model;
+package com.tw.apistack.core.customer.model;
 
 /**
  * Created by jxzhong on 2017/7/17.

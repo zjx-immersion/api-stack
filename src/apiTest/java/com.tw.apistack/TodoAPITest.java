@@ -5,18 +5,15 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
 import com.tw.apistack.config.Constants;
-import com.tw.apistack.endpoint.todo.dto.TodoDTO;
+import com.tw.apistack.core.todo.model.Todo;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.swing.*;
 
 import static com.jayway.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.is;
@@ -61,23 +58,23 @@ public class TodoAPITest {
 
     @Test
     public void should_get_status_201_when_call_post_todo() throws Exception {
-        TodoDTO todoDTO = new TodoDTO("first todo item", false);
+        Todo todo = new Todo("first todo item", false);
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(todoDTO);
+        String json = ow.writeValueAsString(todo);
         System.out.println(json);
 
         RestAssured.
                 given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body(todoDTO)
+                .body(todo)
                 .when()
                 .post(API_PATH)
                 .then()
                 .statusCode(HttpStatus.SC_CREATED)
                 .contentType(ContentType.JSON)
-                .body("title", is(todoDTO.getTitle()));
+                .body("title", is(todo.getTitle()));
     }
 
     @Test
@@ -108,13 +105,13 @@ public class TodoAPITest {
 
     @Test
     public void should_get_status_200_when_call_todos_patch_with_path_2() throws Exception {
-        TodoDTO todoDTO = new TodoDTO();
-        todoDTO.setCompleted(true);
+        Todo todo = new Todo();
+        todo.setCompleted(true);
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .body(todoDTO)
+                .body(todo)
                 .when()
                 .patch(API_PATH + "/2")
                 .then()
@@ -125,13 +122,13 @@ public class TodoAPITest {
 
     @Test
     public void should_get_status_404_when_call_todos_patch_with_path_4() throws Exception {
-        TodoDTO todoDTO = new TodoDTO();
-        todoDTO.setCompleted(true);
+        Todo todo = new Todo();
+        todo.setCompleted(true);
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .body(todoDTO)
+                .body(todo)
                 .when()
                 .patch(API_PATH + "/4")
                 .then()

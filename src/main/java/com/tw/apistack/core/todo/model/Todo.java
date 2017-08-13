@@ -1,28 +1,28 @@
-package com.tw.apistack.endpoint.todo.dto;
+package com.tw.apistack.core.todo.model;
 
 /**
  * Created by jxzhong on 2017/7/3.
  */
-public class TodoDTO {
+public class Todo {
 
     private int id;
     private String title;
     private Boolean completed;
     private Integer order;
 
-    public TodoDTO() {
+    public Todo() {
     }
 
-    public TodoDTO(String title) {
+    public Todo(String title) {
         this.title = title;
     }
 
-    public TodoDTO(String title, Boolean completed) {
+    public Todo(String title, Boolean completed) {
         this.title = title;
         this.completed = completed;
     }
 
-    public TodoDTO(int id, String title, Boolean completed, Integer order) {
+    public Todo(int id, String title, Boolean completed, Integer order) {
         this.id = id;
         this.title = title;
         this.completed = completed;
@@ -46,7 +46,7 @@ public class TodoDTO {
             return false;
         }
 
-        TodoDTO todo = (TodoDTO) o;
+        Todo todo = (Todo) o;
 
         if (id != todo.id) {
             return false;
@@ -76,8 +76,8 @@ public class TodoDTO {
         this.order = order;
     }
 
-    public TodoDTO merge(TodoDTO newTodo) {
-        return new TodoDTO(id,
+    public Todo merge(Todo newTodo) {
+        return new Todo(id,
                 nonNull(newTodo.title, title),
                 nonNull(newTodo.completed, completed),
                 nonNull(newTodo.order, order));

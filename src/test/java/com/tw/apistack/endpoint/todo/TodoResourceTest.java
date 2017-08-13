@@ -1,8 +1,8 @@
 package com.tw.apistack.endpoint.todo;
 
 import com.tw.apistack.endpoint.todo.dto.ResourceWithUrl;
-import com.tw.apistack.endpoint.todo.dto.TodoDTO;
-import com.tw.apistack.repository.DummyTodoRepository;
+import com.tw.apistack.core.todo.model.Todo;
+import com.tw.apistack.core.todo.DummyTodoRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -33,8 +33,8 @@ public class TodoResourceTest {
         //given
 
         when(todoRepository.getAll()).thenReturn(asList(
-                new TodoDTO(1, "test-A", false, 1),
-                new TodoDTO(2, "test-B", false, 1)));
+                new Todo(1, "test-A", false, 1),
+                new Todo(2, "test-B", false, 1)));
         TodoResource helloResource = new TodoResource(todoRepository);
 
         //when
@@ -51,7 +51,7 @@ public class TodoResourceTest {
         //given
 
         when(todoRepository.findById(1)).thenReturn(
-                Optional.of(new TodoDTO(1, "test-A", false, 1)));
+                Optional.of(new Todo(1, "test-A", false, 1)));
         TodoResource helloResource = new TodoResource(todoRepository);
 
         //when
@@ -60,8 +60,8 @@ public class TodoResourceTest {
         //then
         assertThat(((ResponseEntity) todoRes).getStatusCode()).isEqualTo(HttpStatus.OK);
 
-        assertThat(todoRes.getBody().getContent().getClass().getTypeName()).isEqualTo(TodoDTO.class.getTypeName());
-        assertThat(((TodoDTO) todoRes.getBody().getContent()).getId()).isEqualTo(1);
+        assertThat(todoRes.getBody().getContent().getClass().getTypeName()).isEqualTo(Todo.class.getTypeName());
+        assertThat(((Todo) todoRes.getBody().getContent()).getId()).isEqualTo(1);
     }
 
 
@@ -84,12 +84,12 @@ public class TodoResourceTest {
     public void should_add_todo_with_status_201_when_call_save_todo() throws Exception {
         //given
 
-        TodoDTO todoDTO = new TodoDTO();
-        doNothing().when(todoRepository).add(todoDTO);
+        Todo todo = new Todo();
+        doNothing().when(todoRepository).add(todo);
         TodoResource helloResource = new TodoResource(todoRepository);
 
         //when
-        HttpEntity<ResourceWithUrl> todoRes = helloResource.saveTodo(todoDTO);
+        HttpEntity<ResourceWithUrl> todoRes = helloResource.saveTodo(todo);
 
         //then
         assertThat(((ResponseEntity) todoRes).getStatusCode()).isEqualTo(HttpStatus.CREATED);
@@ -101,7 +101,7 @@ public class TodoResourceTest {
     public void should_delete_todo_with_status_200_when_call_delete_todo() throws Exception {
         //given
 
-        TodoDTO todo = new TodoDTO(1, "test-A", false, 1);
+        Todo todo = new Todo(1, "test-A", false, 1);
         when(todoRepository.findById(1)).thenReturn(
                 Optional.of(todo));
         doNothing().when(todoRepository).delete(todo);
@@ -138,7 +138,7 @@ public class TodoResourceTest {
         TodoResource helloResource = new TodoResource(todoRepository);
 
         //when
-        HttpEntity<ResourceWithUrl> todoRes = helloResource.updateTodo(3, new TodoDTO());
+        HttpEntity<ResourceWithUrl> todoRes = helloResource.updateTodo(3, new Todo());
 
         //then
         assertThat(((ResponseEntity) todoRes).getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
@@ -149,7 +149,7 @@ public class TodoResourceTest {
     public void should_not_update_todo_with_status_400_when_call_update_a_empty_todo() throws Exception {
         //given
 
-        TodoDTO todo = new TodoDTO(1, "test-A", false, 1);
+        Todo todo = new Todo(1, "test-A", false, 1);
         when(todoRepository.findById(1)).thenReturn(
                 Optional.of(todo));
         TodoResource helloResource = new TodoResource(todoRepository);
@@ -166,8 +166,8 @@ public class TodoResourceTest {
     public void should_update_todo_with_status_200_when_call_update_a_exist_todo() throws Exception {
         //given
 
-        TodoDTO todo = new TodoDTO(1, "test-A", false, 1);
-        TodoDTO newTodo = new TodoDTO(1, "test-A", true, 1);
+        Todo todo = new Todo(1, "test-A", false, 1);
+        Todo newTodo = new Todo(1, "test-A", true, 1);
         when(todoRepository.findById(1)).thenReturn(
                 Optional.of(todo));
         doNothing().when(todoRepository).delete(todo);
@@ -179,7 +179,7 @@ public class TodoResourceTest {
 
         //then
         assertThat(((ResponseEntity) todoRes).getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat((((TodoDTO) todoRes.getBody().getContent())).isCompleted()).isEqualTo(newTodo.isCompleted());
+        assertThat((((Todo) todoRes.getBody().getContent())).isCompleted()).isEqualTo(newTodo.isCompleted());
 
     }
 

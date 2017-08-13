@@ -45,12 +45,12 @@ CREATE TABLE oauth_refresh_token (
 INSERT INTO user (username, email, password, activated) VALUES
   ('admin', 'admin@mail.me', 'd19dc25bec1c14c7fabc293ea34111eafe725bf3f060017b7dc6a30eab64e6e668ce4b149edf27f1', TRUE);
 INSERT INTO user (username, email, password, activated) VALUES
-  ('user', 'user@mail.me', '365ba0ecf14eb0c1d8ca97e46d2f50eec5538055f930b84596024f0e3613a5cbc4f27b379ab46e49', TRUE);
+  ('todo', 'todo@mail.me', '365ba0ecf14eb0c1d8ca97e46d2f50eec5538055f930b84596024f0e3613a5cbc4f27b379ab46e49', TRUE);
 
 INSERT INTO authority (name) VALUES ('ROLE_USER');
 INSERT INTO authority (name) VALUES ('ROLE_ADMIN');
 
-INSERT INTO user_authority (username, authority) VALUES ('user', 'ROLE_USER');
+INSERT INTO user_authority (username, authority) VALUES ('todo', 'ROLE_USER');
 INSERT INTO user_authority (username, authority) VALUES ('admin', 'ROLE_USER');
 INSERT INTO user_authority (username, authority) VALUES ('admin', 'ROLE_ADMIN');
 
