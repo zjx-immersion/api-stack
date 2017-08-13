@@ -16,8 +16,9 @@
  - [X] Config support multi ENV with spring profile
  - [X] Config content reading with unify mode  (eg:@ConfigurationProperties)
  - [X] Check Style support with customized config
- - [X] ORM support: JAP with local env connect H2 and dev env connect Mysql 7
- - [ ] DB managements like Flyway/liquibase
+ - [X] ORM support: JAP with local env connect H2 
+ - [ ] JAP with Dev env connect Mysql 7 and multi name rule persistence operation in JPA Respostory
+ - [ ] DB managements like Flyway/Liquibase
  - [ ] Object mapping abstract with Orika
  - [X] JUnit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
  - [ ] Junit with JUnitParams
@@ -29,8 +30,8 @@
  - [ ] API quick access UI support: Swagger ui 
  - [X] Security and Authentication support with Auth 2.0 and JWT and Spring Security
  - [X] API /info with production ready info (like: version, name, build number etc.)
- - [ ] Remote debug support
  - [X] CI process like Jenkins pipeline
+ - [X] Remote debug support
  - [ ] Cache support
  - [ ] Internationalization (i18n)
  - [ ] The unify way to call dependence service
@@ -44,6 +45,7 @@
  
  ### V2
  - [ ] CORS Support including client validation
+ - [ ] Customer Driven Contract Testing - (Tool advice: spring boot contract or Pact)
  - [ ] Ansible deploy process strategy
  - [ ] Containerized building and running with newest Docker multi build feature
  
