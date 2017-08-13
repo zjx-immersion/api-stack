@@ -17,6 +17,8 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17"
         classpath group: 'se.transmode.gradle', name: 'gradle-docker', version: '1.2'
+        classpath 'org.liquibase:liquibase-core:3.5.3'
+        classpath "org.liquibase:liquibase-gradle-plugin:1.2.4"
     }
 }
 
@@ -50,10 +52,13 @@ dependencies {
     //compile('org.flywaydb:flyway-core')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.liquibase:liquibase-core')
+    compile 'io.jsonwebtoken:jjwt:0.7.0'
+    compile group: 'com.google.guava', name: 'guava', version: '22.0'
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')
-    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: rest_assured_version
     testCompile group: 'com.jayway.restassured', name: 'json-schema-validator', version: rest_assured_version

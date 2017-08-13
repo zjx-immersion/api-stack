@@ -1,23 +1,18 @@
 package com.tw.apistack;
 
+import com.tw.apistack.config.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
+
 import javax.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
-
-import com.tw.apistack.config.Constants;
-import com.tw.apistack.endpoint.todo.dto.TodoDTO;
-import com.tw.apistack.repository.DummyTodoRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
-import org.springframework.core.env.Environment;
 
 
 @SpringBootApplication
@@ -64,7 +59,7 @@ public class ApiStackApplication {
                 env.getProperty("server.port"),
                 env.getActiveProfiles());
     }
-
+/*
     @Bean
     @Profile(Constants.SPRING_PROFILE_LOCAL)
     public CommandLineRunner setup(DummyTodoRepository toDoRepository) {
@@ -78,6 +73,42 @@ public class ApiStackApplication {
     }
 
     @Bean
+    @Profile(Constants.SPRING_PROFILE_LOCAL)
+    public CommandLineRunner setupDB(CustomerRepository repository) {
+        return (args) -> {
+            // save a couple of customers
+            repository.save(new Customer("Jack", "Bauer"));
+            repository.save(new Customer("Chloe", "O'Brian"));
+            repository.save(new Customer("Kim", "Bauer"));
+            repository.save(new Customer("David", "Palmer"));
+            repository.save(new Customer("Michelle", "Dessler"));
+
+            // fetch all customers
+            LOG.info("Customers found with findAll():");
+            LOG.info("-------------------------------");
+            for (Customer customer : repository.findAll()) {
+                LOG.info(customer.toString());
+            }
+            LOG.info("");
+
+            // fetch an individual customer by ID
+            Customer customer = repository.findOne(1L);
+            LOG.info("Customer found with findOne(1L):");
+            LOG.info("--------------------------------");
+            LOG.info(customer.toString());
+            LOG.info("");
+
+            // fetch customers by last name
+            LOG.info("Customer found with findByLastName('Bauer'):");
+            LOG.info("--------------------------------------------");
+            for (Customer bauer : repository.findByLastName("Bauer")) {
+                LOG.info(bauer.toString());
+            }
+            LOG.info("");
+        };
+    }
+
+    @Bean
     @Profile(Constants.SPRING_PROFILE_TEST)
     public CommandLineRunner setupTestEnv(DummyTodoRepository toDoRepository) {
         return (args) -> {
@@ -85,5 +116,5 @@ public class ApiStackApplication {
             toDoRepository.add(new TodoDTO("test-B", false));
             LOG.info("The test data has been generated");
         };
-    }
+    }*/
 }

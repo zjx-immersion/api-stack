@@ -14,11 +14,11 @@
  - [X] IDE feature support like git、java
  - [ ] Project folder with multi level structure
  - [X] Config support multi ENV with spring profile
- - [ ] Config content reading with unify mode  (eg:@ConfigurationProperties)
+ - [X] Config content reading with unify mode  (eg:@ConfigurationProperties)
  - [X] Check Style support with customized config
- - [ ] ORM support: JAP with local env connect H2 
+ - [X] ORM support: JAP with local env connect H2 
  - [ ] JAP with Dev env connect Mysql 7 and multi name rule persistence operation in JPA Respostory
- - [ ] DB managements like Flyway
+ - [ ] DB managements like Flyway/Liquibase
  - [ ] Object mapping abstract with Orika
  - [X] JUnit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
  - [ ] Junit with JUnitParams
@@ -28,7 +28,7 @@
  - [X] CORS simple Support
  - [ ] Request & Response gzip support
  - [ ] API quick access UI support: Swagger ui 
- - [ ] Security and Authentication support with Auth 2.0 and JWT and Spring Security
+ - [X] Security and Authentication support with Auth 2.0 and JWT and Spring Security
  - [X] API /info with production ready info (like: version, name, build number etc.)
  - [X] CI process like Jenkins pipeline
  - [X] Remote debug support
@@ -36,8 +36,8 @@
  - [ ] Internationalization (i18n)
  - [ ] The unify way to call dependence service
  - [ ] API version support
- - [ ] Rest api playload standard building like JaonAPI
- - [ ] Build jar in container
+ - [ ] Rest api playload standard building like JaonAPI/HAL
+ - [X] Build jar in container
  - [X] Containerized the env API server
  - [ ] Containerized the env DB 
  - [ ] File upload and download support like Image

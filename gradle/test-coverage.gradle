@@ -33,7 +33,9 @@ jacocoTestReport {
                               '**/apiTest/**',
                               '**/aop/**',
                               '**/config/**',
-                              '**/repository/**'
+                              '**/repository/**',
+                              '**/security/**',
+                              '**/model/**'
                     ])
         })
     }
