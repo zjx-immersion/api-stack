@@ -35,8 +35,8 @@
  - [ ] Internationalization (i18n)
  - [ ] The unify way to call dependence service
  - [ ] API version support
- - [ ] Rest api playload standard building like JaonAPI/HALxs
- - [ ] Build jar in container
+ - [ ] Rest api playload standard building like JaonAPI/HAL
+ - [X] Build jar in container
  - [X] Containerized the env API server
  - [ ] Containerized the env DB 
  - [ ] File upload and download support like Image
