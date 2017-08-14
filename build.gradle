@@ -24,17 +24,13 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'application'
 apply from: file('gradle/idea.gradle')
 apply from: file('gradle/test-coverage.gradle')
 apply from: file('gradle/api-test.gradle')
 apply from: file('gradle/check-style.gradle')
 apply from: file('gradle/build-info.gradle')
 apply from: file('gradle/docker.gradle')
-
-
-applicationDefaultJvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"]
-
+apply from: file('gradle/remote-debug.gradle')
 
 
 version = project.version
