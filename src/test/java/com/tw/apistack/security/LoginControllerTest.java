@@ -1,5 +1,6 @@
 package com.tw.apistack.security;
 
+import com.tw.apistack.ApiStackApplication;
 import com.tw.apistack.security.core.model.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class LoginControllerIT {
+@SpringBootTest(classes = ApiStackApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class LoginControllerTest {
     private String base;
 
     @LocalServerPort
@@ -27,7 +28,7 @@ public class LoginControllerIT {
 
     @Before
     public void init() throws Exception {
-        this.base = "http://localhost:" + port;
+        this.base = "http://localhost:" + port + "/api";
     }
 
 
