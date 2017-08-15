@@ -50,7 +50,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.liquibase:liquibase-core')
     compile 'io.jsonwebtoken:jjwt:0.7.0'
-    compile group: 'com.google.guava', name: 'guava', version: '22.0'
+    compile group: 'com.google.guava', name: 'guava', version: google_guava
+    compile group: 'commons-lang', name: 'commons-lang', version: commons_lang_version
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
