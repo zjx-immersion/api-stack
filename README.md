@@ -18,7 +18,7 @@
  - [X] Check Style support with customized config
  - [X] ORM support: JAP with local env connect H2 
  - [ ] JAP with Dev env connect Mysql 7 and multi name rule persistence operation in JPA Respostory
- - [ ] DB managements like Flyway/Liquibase
+ - [X] DB managements like Flyway/Liquibase
  - [ ] Object mapping abstract with Orika
  - [X] JUnit Test Support - Include Spring Test Starter(Already Include Junit) and Mockito 
  - [ ] Junit with JUnitParams
