@@ -64,7 +64,8 @@ public class ApiStackApplication {
                 env.getProperty("server.port"),
                 env.getActiveProfiles());
     }
-/*
+
+
     @Bean
     @Profile(Constants.SPRING_PROFILE_LOCAL)
     public CommandLineRunner setup(DummyTodoRepository toDoRepository) {
@@ -76,42 +77,6 @@ public class ApiStackApplication {
             LOG.info("The sample data has been generated");
         };
     }
-
-    @Bean
-    @Profile(Constants.SPRING_PROFILE_LOCAL)
-    public CommandLineRunner setupDB(CustomerRepository repository) {
-        return (args) -> {
-            // save a couple of customers
-            repository.save(new Customer("Jack", "Bauer"));
-            repository.save(new Customer("Chloe", "O'Brian"));
-            repository.save(new Customer("Kim", "Bauer"));
-            repository.save(new Customer("David", "Palmer"));
-            repository.save(new Customer("Michelle", "Dessler"));
-
-            // fetch all customers
-            LOG.info("Customers found with findAll():");
-            LOG.info("-------------------------------");
-            for (Customer customer : repository.findAll()) {
-                LOG.info(customer.toString());
-            }
-            LOG.info("");
-
-            // fetch an individual customer by ID
-            Customer customer = repository.findOne(1L);
-            LOG.info("Customer found with findOne(1L):");
-            LOG.info("--------------------------------");
-            LOG.info(customer.toString());
-            LOG.info("");
-
-            // fetch customers by last name
-            LOG.info("Customer found with findByLastName('Bauer'):");
-            LOG.info("--------------------------------------------");
-            for (Customer bauer : repository.findByLastName("Bauer")) {
-                LOG.info(bauer.toString());
-            }
-            LOG.info("");
-        };
-    } */
 
     @Bean
     @Profile(Constants.SPRING_PROFILE_TEST)
