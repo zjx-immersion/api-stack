@@ -1,0 +1,24 @@
+apply plugin: "findbugs"
+
+findbugs {
+    ignoreFailures = true
+    reportsDir = file("$project.buildDir/reports/findbugs")
+    reportLevel = "high"
+}
+
+findbugsMain {
+    ignoreFailures = true
+    effort = "max"
+    reportLevel = "low"
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+findbugsTest {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
