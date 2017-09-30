@@ -22,3 +22,19 @@ findbugsTest {
         html.enabled true
     }
 }
+
+
+tasks.withType(FindBugs) {
+    task ->
+        task.doFirst {
+            def ft = task.classes
+            if (task.classes == null) {
+                return
+            }
+            ft.exclude '**/*.yml'
+            ft.exclude '**/*.sql'
+            ft.exclude '**/*.json'
+
+            task.classes = files(ft.files)
+        }
+}
