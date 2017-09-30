@@ -14,6 +14,19 @@ findbugsMain {
         xml.enabled false
         html.enabled true
     }
+
+    doFirst {
+        fileTree("$sourceSets.main.output.classesDir/")
+                .include('*.yml')
+                .each{
+            jsonFile ->
+            def targetJsonFile = file("$sourceSets.main.output.resourcesDir/$jsonFile.name")
+                if (targetJsonFile.exists()) {
+                    targetJsonFile.delete()
+                }
+                jsonFile.renameTo(targetJsonFile)
+        }
+    }
 }
 
 findbugsTest {
@@ -21,4 +34,20 @@ findbugsTest {
         xml.enabled false
         html.enabled true
     }
+}
+
+
+tasks.withType(FindBugs) {
+    task ->
+        task.doFirst {
+            def  ft = task.classes
+            if (task.classes == null) {
+                return
+            }
+            ft.exclude '**/*.yml'
+            ft.exclude '**/*.sql'
+            ft.exclude '**/*.json'
+
+            task.classes = files(ft.files)
+        }
 }
