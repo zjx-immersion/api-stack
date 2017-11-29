@@ -48,6 +48,7 @@
  - [ ] Customer Driven Contract Testing - (Tool advice: spring boot contract or Pact)
  - [ ] Ansible deploy process strategy
  - [ ] Containerized building and running with newest Docker multi build feature
+ - [ ] Spring Cloud support for microservice basic stack
  
  ## Contribution
  if you wang to pick any item upon, please click [Board](https://github.com/zjx-immersion/api-stack/projects/1), and choose the corresponding crad which exist in todo list.
