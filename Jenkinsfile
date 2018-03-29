@@ -58,7 +58,6 @@ node {
     step([$class: 'ArtifactArchiver', artifacts: '**/build/libs/*.jar', fingerprint: true])
 }
 
-
 stage 'Approve, go production'
 node {
     try {
