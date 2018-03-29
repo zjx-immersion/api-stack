@@ -1,0 +1,40 @@
+apply plugin: "findbugs"
+
+findbugs {
+    ignoreFailures = true
+    reportsDir = file("$project.buildDir/reports/findbugs")
+    reportLevel = "high"
+}
+
+findbugsMain {
+    ignoreFailures = true
+    effort = "max"
+    reportLevel = "low"
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+findbugsTest {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+
+tasks.withType(FindBugs) {
+    task ->
+        task.doFirst {
+            def ft = task.classes
+            if (task.classes == null) {
+                return
+            }
+            ft.exclude '**/*.yml'
+            ft.exclude '**/*.sql'
+            ft.exclude '**/*.json'
+
+            task.classes = files(ft.files)
+        }
+}
